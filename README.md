@@ -1,12 +1,12 @@
 # Development Environment for Building Keyboard Firmware
-This repository is to help you setup a development environment to build your keyboard firmware. This requires Docker and is currently supported for QMK Firmware or repositories forked form the QMK source.
+This repository is to help you setup a development environment to build your keyboard firmware. This requires Docker and is currently supported for the QMK Firmware or repositories forked form the QMK source.
 
 Purpose of this repositiory was for me to test builds not only from the main QMK firmware, but also from the ZSA and Vial firmware repositories.
 
 
 ## Requirements
 - Host should have a vanilla install of qmk with all of its required dependencies, this is to ensure you have a method of flashing your compiled firmware to your controller
-- Docker
+- Docker, all commands are for linux base host. Windows commands will be updated later.
 
 
 ## Limitations
@@ -43,14 +43,14 @@ QMK_ROOT_FOLDER=~/kb-dev/kbfw-dev-env/qmk_firmware
 #QMK_ROOT_FOLDER=~/kb-dev/kbfw-dev-env/vial-qmk
 #QMK_ROOT_FOLDER=~/kb-dev/kbfw-dev-env/zsa-qmk
 
-KBFW_IMAGE="greyhatmiddleman/dev-qmk"
+DEVQMK_IMAGE="greyhatmiddleman/dev-qmk"
 
 cd $QMK_ROOT_FOLDER
 
 docker run --rm -it \
   --network none \
   -v `pwd`:/home/qmk/qmk_firmware \
-  $KBFW_IMAGE compile -kb crkbd -km default
+  $DEVQMK_IMAGE compile -kb crkbd -km default
 
 ls *.{hex,bin}
 ```
