@@ -4,7 +4,7 @@ ARG repohost=mirrors.mit.edu
 ARG containeruser=qmk
 
 RUN echo "Server = http://${repohost}/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
-RUN groupadd -g 985 users && useradd ${containeruser} && mkhomedir_helper ${containeruser}
+RUN groupadd -g 985 users ; useradd ${containeruser} && mkhomedir_helper ${containeruser}
 
 # installations
 RUN pacman -Syu --noconfirm

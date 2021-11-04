@@ -29,7 +29,8 @@ cd kbfw-dev-env
 docker build -t localhost/qmk .
 ```
 There is no need to run the qmk setup within the container.
-PENDING to push docker image to docker hub so that build is not necessary.
+
+Docker image is also available, if you decide not to build the image locally `docker pull greyhatmiddleman/dev-qmk:latest`
 
 
 ## Usage
@@ -42,6 +43,7 @@ KBFW_IMAGE="localhost/qmk"
 cd $QMK_ROOT_FOLDER
 
 docker run --rm -it \
+  --network none \
   -v `pwd`:/home/qmk/qmk_firmware \
   $KBFW_IMAGE compile -kb crkbd -km default
 
