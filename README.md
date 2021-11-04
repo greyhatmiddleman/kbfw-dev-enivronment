@@ -3,7 +3,8 @@ This repository is to help you setup a development environment to build your key
 
 
 ## Requirements
-
+- Docker
+-
 
 ## Setup
 
