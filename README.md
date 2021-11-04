@@ -26,19 +26,24 @@ git clone --recurse-submodules https://github.com/greyhatmiddleman/kbfw-dev-env.
 To build the docker image, after you have cloned the repository run the follow:
 ```
 cd kbfw-dev-env
-docker build -t localhost/qmk .
+docker build -t localhost/dev-qmk .
 ```
 There is no need to run the qmk setup within the container.
 
-Docker image is also available, if you decide not to build the image locally `docker pull greyhatmiddleman/dev-qmk:latest`
-
+Docker image is also available in docker hub:
+```
+docker pull greyhatmiddleman/dev-qmk:latest
+```
 
 ## Usage
-The following is an example to run the docker container to build the firmware within the host's qmk firmware folder. If you would need to test a different firmware, just change the `QMK_ROOT_FOLDER` variable to the desired path.
+The following is an example to run the docker container to build the firmware within the host's qmk firmware folder. If you need to test a different firmware, just change the `QMK_ROOT_FOLDER` variable to the desired path.
 
 ```bash
 QMK_ROOT_FOLDER=~/kb-dev/kbfw-dev-env/qmk_firmware
-KBFW_IMAGE="localhost/qmk"
+#QMK_ROOT_FOLDER=~/kb-dev/kbfw-dev-env/vial-qmk
+#QMK_ROOT_FOLDER=~/kb-dev/kbfw-dev-env/zsa-qmk
+
+KBFW_IMAGE="greyhatmiddleman/dev-qmk"
 
 cd $QMK_ROOT_FOLDER
 
