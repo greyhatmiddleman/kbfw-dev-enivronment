@@ -9,4 +9,7 @@ QMK_ROOT_FOLDER=$SCRIPT_DIR/qmk_firmware
 #QMK_ROOT_FOLDER=$SCRIPT_DIR/zsa-qmk
 #QMK_ROOT_FOLDER=$SCRIPT_DIR/vial-qmk
 
-docker run --rm -it -v $QMK_ROOT_FOLDER:/home/qmk/qmk_firmware user/qmk $@
+docker run --rm -it \
+	-e SKIP_GIT="true" \
+	-v $QMK_ROOT_FOLDER:/home/qmk/qmk_firmware \
+	user/qmk $@
