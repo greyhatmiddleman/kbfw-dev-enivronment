@@ -18,14 +18,14 @@ Purpose of this repositiory was for me to test builds not only from the main QMK
 I suggest cloning all the firmware repos in a different developent folder, seperate from the host's qmk firmware path. Otherwise you can run the following commands to get the entire source repositories
 
 ```
-mkdir -p ~/kb-dev
-cd ~/kb-dev
-git clone --recurse-submodules https://github.com/greyhatmiddleman/kbfw-dev-env.git
+mkdir -p ~/dev
+cd ~/dev
+git clone --recurse-submodules https://github.com/greyhatmiddleman/kbfw_sandbox.git
 ```
 
 To build the docker image, after you have cloned the repository run the follow:
 ```
-cd kbfw-dev-env
+cd kbfw_sandbox
 docker build -t localhost/dev-qmk .
 ```
 There is no need to run the qmk setup within the container.
@@ -39,9 +39,9 @@ docker pull greyhatmiddleman/dev-qmk:latest
 The following is an example to run the docker container to build the firmware within the host's qmk firmware folder. If you need to test a different firmware, just change the `QMK_ROOT_FOLDER` variable to the desired path.
 
 ```bash
-QMK_ROOT_FOLDER=~/kb-dev/kbfw-dev-env/qmk_firmware
-#QMK_ROOT_FOLDER=~/kb-dev/kbfw-dev-env/vial-qmk
-#QMK_ROOT_FOLDER=~/kb-dev/kbfw-dev-env/zsa-qmk
+QMK_ROOT_FOLDER=~/dev/kbfw_sandbox/qmk_firmware
+#QMK_ROOT_FOLDER=~/dev/kbfw_sandbox/vial-qmk
+#QMK_ROOT_FOLDER=~/dev/kbfw_sandbox/zsa-qmk
 
 DEVQMK_IMAGE="greyhatmiddleman/dev-qmk"
 
