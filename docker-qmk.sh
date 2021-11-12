@@ -5,7 +5,7 @@
 
 
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-QMK_ROOT_FOLDER=$SCRIPT_DIR/qmk-firmware
+QMK_ROOT_FOLDER=$SCRIPT_DIR/qmk_firmware
 #QMK_ROOT_FOLDER=$SCRIPT_DIR/zsa-qmk
 #QMK_ROOT_FOLDER=$SCRIPT_DIR/vial-qmk
 
