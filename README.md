@@ -1,5 +1,5 @@
 # Development Environment for Building Keyboard Firmware
-This repository is to help you setup a development environment to build your keyboard firmware. This requires Docker and is currently supported for the QMK Firmware or repositories forked form the QMK source.
+This repository is to help you setup a development environment to build your keyboard firmware. This requires Docker and is currently supported for the QMK Firmware or repositories forked from the QMK source.
 
 Purpose of this repositiory was for me to test builds not only from the main QMK firmware, but also from the ZSA and Vial firmware repositories.
 
@@ -15,7 +15,7 @@ Purpose of this repositiory was for me to test builds not only from the main QMK
 
 
 ## Setup
-I suggest cloning all the firmware repos in a different developent folder, seperate from the host's qmk firmware path. Otherwise you can run the following commands to get the entire source repositories
+I suggest cloning all the firmware repos in a different developent folder, seperate from the host's qmk firmware path. You can run the following commands to get the entire source repositories and setup your dev environment:
 
 ```
 mkdir -p ~/dev
@@ -23,14 +23,14 @@ cd ~/dev
 git clone --recurse-submodules https://github.com/greyhatmiddleman/kbfw_sandbox.git
 ```
 
-To build the docker image, after you have cloned the repository run the follow:
+To build the docker image, after you have cloned the repository and run the follow:
 ```
 cd kbfw_sandbox
 docker build -t localhost/dev-qmk .
 ```
 There is no need to run the qmk setup within the container.
 
-Docker image is also available in docker hub:
+A Docker image is also available in docker hub:
 ```
 docker pull greyhatmiddleman/dev-qmk:latest
 ```
@@ -48,6 +48,7 @@ DEVQMK_IMAGE="greyhatmiddleman/dev-qmk"
 cd $QMK_ROOT_FOLDER
 
 docker run --rm -it \
+  -e SKIP_GIT="true" \
   --network none \
   -v `pwd`:/home/qmk/qmk_firmware \
   $DEVQMK_IMAGE compile -kb crkbd -km default
