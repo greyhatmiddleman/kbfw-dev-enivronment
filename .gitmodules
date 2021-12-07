@@ -1,9 +1,12 @@
 [submodule "qmk_firmware"]
 	path = qmk_firmware
 	url = https://github.com/greyhatmiddleman/qmk_firmware.git
+	branch = greyhatmiddleman
 [submodule "vial-qmk"]
 	path = vial-qmk
 	url = https://github.com/greyhatmiddleman/vial-qmk.git
+	branch = vial
 [submodule "zsa-qmk"]
 	path = zsa-qmk
 	url = https://github.com/greyhatmiddleman/zsa-qmk.git
+	branch = master
